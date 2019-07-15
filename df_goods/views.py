@@ -2,6 +2,7 @@ from django.shortcuts import render
 from .models import *
 from django.core.paginator import Paginator
 from df_cart.models import *
+from haystack.generic_views import SearchView
 
 
 # Create your views here.
@@ -106,25 +107,16 @@ def detail(request, id):
     return response
 
 
-from datetime import date
-
-from haystack.generic_views import SearchView
-
-
 class MySearchView(SearchView):
-    """My custom search view."""
-
-    def get_queryset(self):
-        queryset = super(MySearchView, self).get_queryset()
-        # further filter queryset based on some set of criteria
-        return queryset.filter(pub_date__gte=date(2019, 7, 1))
-
-    def get_context_data(self, *args, **kwargs):
-        context = super(MySearchView, self).get_context_data(*args, **kwargs)
+    #    自定义视图搜不出结果
+    def get_context_data(self, **kwargs):
+        context = super(SearchView, self).get_context_data(**kwargs)
         count = CartInfo.objects.filter(user_id=self.request.session.get('user_id', 0)).count()
+        news = GoodsInfo.objects.all().order_by('-id')[0:2]
         context['title'] = '搜索'
         context['name'] = '搜索'
         context['request'] = self.request
         context['count'] = count
-        # do something
+        context['news'] = news
+        # print(context)
         return context

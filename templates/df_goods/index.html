@@ -95,7 +95,7 @@
                 <a href="{{ g.id }}">{{ g.gtitle|slice:'10' }}</a>
                 {% endfor %}
             </div>
-            <a href="#" class="goods_more fr">查看更多 ></a>
+            <a href="{% url 'goods:list' 2 1 1 %}" class="goods_more fr">查看更多 ></a>
         </div>
 
         <div class="goods_con clearfix">
@@ -148,7 +148,7 @@
                 <a href="{{ g.id }}">{{ g.gtitle|slice:'10' }}</a>
                 {% endfor %}
             </div>
-            <a href="#" class="goods_more fr">查看更多 ></a>
+            <a href="{% url 'goods:list' 3 1 1 %}" class="goods_more fr">查看更多 ></a>
         </div>
 
         <div class="goods_con clearfix">
@@ -174,7 +174,7 @@
                 <a href="{{ g.id }}">{{ g.gtitle|slice:'10' }}</a>
                 {% endfor %}
             </div>
-            <a href="#" class="goods_more fr">查看更多 ></a>
+            <a href="{% url 'goods:list' 4 1 1 %}" class="goods_more fr">查看更多 ></a>
         </div>
 
         <div class="goods_con clearfix">
@@ -200,7 +200,7 @@
                 <a href="{{ g.id }}">{{ g.gtitle|slice:'10' }}</a>
                 {% endfor %}
             </div>
-            <a href="#" class="goods_more fr">查看更多 ></a>
+            <a href="{% url 'goods:list' 5 1 1 %}" class="goods_more fr">查看更多 ></a>
         </div>
 
         <div class="goods_con clearfix">
