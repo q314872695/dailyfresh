@@ -1,0 +1,21 @@
+{% extends 'base_index.html' %}
+{% block con %}
+{% if query %}
+    <h3>搜索结果如下：</h3>
+    搜索的关键字是：{{ query }}<br>
+    当前页的Page对象：{{ page.object }}<br>
+    {% for result in page.object_list %}
+        <a href="/{{ result.object.id }}/">{{ result.object.gtitle }}</a><br/>
+    {% empty %}
+        <p>啥也没找到</p>
+    {% endfor %}
+
+    {% if page.has_previous or page.has_next %}
+        <div>
+            {% if page.has_previous %}<a href="?q={{ query }}&amp;page={{ page.previous_page_number }}">{% endif %}&laquo; 上一页{% if page.has_previous %}</a>{% endif %}
+        |
+            {% if page.has_next %}<a href="?q={{ query }}&amp;page={{ page.next_page_number }}">{% endif %}下一页 &raquo;{% if page.has_next %}</a>{% endif %}
+        </div>
+    {% endif %}
+{% endif %}
+{% endblock %}
