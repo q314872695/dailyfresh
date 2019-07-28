@@ -24,7 +24,7 @@
                         <td width="55%">
                             {% for fo in foo.orderdetailinfo_set.all %}
                                 <ul class="order_goods_list clearfix">
-                                    <li class="col01"><img src="/static/{{ fo.goods.gpic }}"></li>
+                                    <li class="col01"><img src="/media/{{ fo.goods.gpic }}"></li>
                                     <li class="col02">{{ fo.goods.gtitle }}<em>{{ fo.goods.gprice }}元/{{ fo.goods.gunit }}</em>
                                     </li>
                                     <li class="col03">{{ fo.count }}</li>

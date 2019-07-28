@@ -75,7 +75,7 @@
         {% for cart in carts %}
             <ul class="goods_list_td clearfix">
                 <li class="col01">{{ forloop.counter }}</li>
-                <li class="col02"><img src="/static/{{ cart.goods.gpic }}"></li>
+                <li class="col02"><img src="/media/{{ cart.goods.gpic }}"></li>
                 <li class="col03">{{ cart.goods.gtitle }}&nbsp;<span style="color: red">库存:{{ cart.goods.gkucun }}</span></li>
                 <li class="col04">{{ cart.goods.gunit }}</li>
                 <li class="col05">{{ cart.goods.gprice }}元</li>

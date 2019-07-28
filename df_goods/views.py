@@ -122,6 +122,15 @@ def detail(request, id):
 
 class MySearchView(SearchView):
     #    自定义视图搜不出结果
+    """
+    get_context_data（** kwargs）返回用于显示对象列表的上下文数据。
+        context:
+        object_list：此视图正在显示的对象列表。如果 context_object_name指定，则该变量也将在上下文中设置，其值相同object_list。
+        is_paginated：表示结果是否已分页的布尔值。具体而言，False如果未指定页面大小，或者可用对象不跨越多个页面，则将其设置为。
+        paginator：一个实例 django.core.paginator.Paginator。如果页面未分页，则此上下文变量将为None。
+        page_obj：一个实例 django.core.paginator.Page。如果页面未分页，则此上下文变量将为None。
+    """
+
     def get_context_data(self, **kwargs):
         context = super(SearchView, self).get_context_data(**kwargs)
         count = CartInfo.objects.filter(user_id=self.request.session.get('user_id', 0)).count()

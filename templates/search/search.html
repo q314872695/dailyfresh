@@ -7,7 +7,7 @@
     <ul class="goods_type_list clearfix">
         {% for foo in object_list %}
             <li>
-                <a href="/{{ foo.object.id }}"><img src="/static/{{ foo.object.gpic }}"></a>
+                <a href="/{{ foo.object.id }}"><img src="/media/{{ foo.object.gpic }}"></a>
                 <h4><a href="/{{ foo.object.id }}">{{ foo.object.gtitle }}</a></h4>
                 <div class="operate">
                     <span class="prize">￥{{ foo.object.gprice }}</span>

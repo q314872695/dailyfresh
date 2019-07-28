@@ -22,7 +22,7 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 SECRET_KEY = '6309)55fq_w-^%nt-*pyzw2$cc!zgc8r@$ul_e*cwtzw264ss^'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
 
 ALLOWED_HOSTS = ['*']
 
@@ -67,6 +67,7 @@ TEMPLATES = [
                 'django.template.context_processors.request',
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
+                # 'django.template.context_processors.media'
             ],
         },
     },
@@ -78,18 +79,18 @@ WSGI_APPLICATION = 'dailyfresh.wsgi.application'
 # https://docs.djangoproject.com/en/2.2/ref/settings/#databases
 
 DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
-    }
     # 'default': {
-    #     'ENGINE': 'django.db.backends.mysql',
-    #     'NAME': 'tiantian',
-    #     'USER': 'root',
-    #     'PASSWORD': '00aec05f6cd4b1c0',
-    #     'HOST': 'localhost',
-    #     'PORT': '3306',
+    #     'ENGINE': 'django.db.backends.sqlite3',
+    #     'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
     # }
+    'default': {
+        'ENGINE': 'django.db.backends.mysql',
+        'NAME': 'tiantian',
+        'USER': 'tiantian',
+        'PASSWORD': 'BPaN8wX47iw6WtZj',
+        'HOST': '132.232.8.156',
+        'PORT': '3306',
+    }
 }
 
 # Password validation
@@ -125,13 +126,17 @@ USE_TZ = True
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/2.2/howto/static-files/
-
+# 上传的static文件
 STATIC_URL = '/static/'
-STATICFILES_DIRS = [
-    os.path.join(BASE_DIR, 'static')
-]
-# 开发阶段上传文件目录
-MEDIA_ROOT = os.path.join(BASE_DIR, 'static')
+# 在部署静态文件时(pyhtonmanage.pycollectstatic)所有的静态文静聚合的目录,STATIC_ROOT要写成绝对地址
+STATIC_ROOT = os.path.join(BASE_DIR, 'static')
+# Django 应该在哪些位置寻找静态文件
+# STATICFILES_DIRS = [
+#    os.path.join(BASE_DIR, 'static')
+# ]
+# 上传的media文件目录
+MEDIA_URL = '/media/'
+MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 
 # 富文本编辑器配置
 TINYMCE_DEFAULT_CONFIG = {

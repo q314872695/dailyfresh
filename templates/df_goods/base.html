@@ -41,7 +41,7 @@
                 <ul>
                     {% for good in news %}
                         <li>
-                            <a href="{{ good.id }}"><img src="/static/{{ good.gpic }}"></a>
+                            <a href="{{ good.id }}"><img src="/media/{{ good.gpic }}"></a>
                             <h4><a href="{{ good.id }}">{{ good.gtitle }}</a></h4>
                             <div class="prize">￥{{ good.gprice }}</div>
                         </li>

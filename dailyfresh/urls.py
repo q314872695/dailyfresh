@@ -13,15 +13,20 @@ Including another URLconf
     1. Import the include() function: from django.urls import include, path
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
+from .settings import MEDIA_ROOT, MEDIA_URL
 from django.contrib import admin
 from django.urls import path, include
+from django.conf.urls.static import static
 
 urlpatterns = [
-    path('admin/', admin.site.urls),
-    path('user/', include('df_user.urls', namespace='user')),
-    path('tinymce/', include('tinymce.urls')),
-    path('', include('df_goods.urls', namespace='goods')),
-    path('cart/', include('df_cart.urls', namespace='cart')),
-    path('order/', include('df_order.urls', namespace='order')),
-    # path('search/', include('haystack.urls')),
-]
+                  path('admin/', admin.site.urls),
+                  path('user/', include('df_user.urls', namespace='user')),
+                  path('tinymce/', include('tinymce.urls')),
+                  path('', include('df_goods.urls', namespace='goods')),
+                  path('cart/', include('df_cart.urls', namespace='cart')),
+                  path('order/', include('df_order.urls', namespace='order')),
+
+                  # path('search/', include('haystack.urls')),
+              ] + static(MEDIA_URL, document_root=MEDIA_ROOT)
+
+# 部署时把静态文件交给网页服务器处理，故注释掉
