@@ -22,9 +22,9 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 SECRET_KEY = '6309)55fq_w-^%nt-*pyzw2$cc!zgc8r@$ul_e*cwtzw264ss^'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['*']
 
 # Application definition
 
@@ -78,18 +78,18 @@ WSGI_APPLICATION = 'dailyfresh.wsgi.application'
 # https://docs.djangoproject.com/en/2.2/ref/settings/#databases
 
 DATABASES = {
-    # 'default': {
-    #     'ENGINE': 'django.db.backends.sqlite3',
-    #     'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
-    # }
     'default': {
-        'ENGINE': 'django.db.backends.mysql',
-        'NAME': 'tiantian',
-        'USER': 'root',
-        'PASSWORD': '00aec05f6cd4b1c0',
-        'HOST': 'localhost',
-        'PORT': '3306',
+        'ENGINE': 'django.db.backends.sqlite3',
+        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
     }
+    # 'default': {
+    #     'ENGINE': 'django.db.backends.mysql',
+    #     'NAME': 'tiantian',
+    #     'USER': 'root',
+    #     'PASSWORD': '00aec05f6cd4b1c0',
+    #     'HOST': 'localhost',
+    #     'PORT': '3306',
+    # }
 }
 
 # Password validation
