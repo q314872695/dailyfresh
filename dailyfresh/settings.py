@@ -34,7 +34,7 @@ INSTALLED_APPS = [
     'django.contrib.contenttypes',
     'django.contrib.sessions',
     'django.contrib.messages',
-    'django.contrib.staticfiles',
+    # 'django.contrib.staticfiles',
     'df_user',
     'df_goods',
     'df_cart',
@@ -87,8 +87,8 @@ DATABASES = {
         'ENGINE': 'django.db.backends.mysql',
         'NAME': 'tiantian',
         'USER': 'tiantian',
-        'PASSWORD': 'BPaN8wX47iw6WtZj',
-        'HOST': '132.232.8.156',
+        'PASSWORD': 'xxx',
+        'HOST': 'xxx',
         'PORT': '3306',
     }
 }
@@ -128,7 +128,7 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/2.2/howto/static-files/
 # 上传的static文件
 STATIC_URL = '/static/'
-# 在部署静态文件时(pyhtonmanage.pycollectstatic)所有的静态文静聚合的目录,STATIC_ROOT要写成绝对地址
+# 在部署静态文件时(pyhtonmanage.pycollectstatic)所有的静态文静聚合的目录,STATIC_ROOT要写成绝对地址,开发阶段用不到
 STATIC_ROOT = os.path.join(BASE_DIR, 'static')
 # Django 应该在哪些位置寻找静态文件
 # STATICFILES_DIRS = [
